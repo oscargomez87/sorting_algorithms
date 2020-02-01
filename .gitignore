@@ -1,0 +1,7 @@
+*
+![0-9]*
+!*.c
+*main*
+!README.md
+!*.h
+!.gitignore
