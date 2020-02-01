@@ -7,9 +7,12 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *flist = (*list)->next, *temp = NULL, *position = NULL;
+	listint_t *flist = NULL, *temp = NULL, *position = NULL;
 	unsigned int flag;
 
+	if (*list == NULL)
+		return;
+	flist = (*list)->next;
 	while (flist)
 	{
 		position = flist;
