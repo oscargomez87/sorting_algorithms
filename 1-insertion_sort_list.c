@@ -8,7 +8,6 @@
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *flist = NULL, *temp = NULL, *position = NULL;
-	unsigned int flag;
 
 	if (*list == NULL)
 		return;
@@ -17,29 +16,24 @@ void insertion_sort_list(listint_t **list)
 	{
 		position = flist;
 		flist = flist->next;
-		flag = 0;
-		while (!flag)
+		while (position != *list)
 		{
-			if (position->prev != NULL)
+			if (position->n < position->prev->n)
 			{
-				if (position->n < position->prev->n)
-				{
-					temp = position->prev->prev;
-					position->prev->next = position->next;
-					position->prev->prev = position;
-					if (position->next != NULL)
-						position->next->prev = position->prev;
-					position->next = position->prev;
-					position->prev = temp;
-					if (position->prev != NULL)
-						position->prev->next = position;
-					else
-						*list = position;
-					print_list(*list);
-				} else
-					flag = 1;
+				temp = position->prev->prev;
+				position->prev->next = position->next;
+				position->prev->prev = position;
+				if (position->next != NULL)
+					position->next->prev = position->prev;
+				position->next = position->prev;
+				position->prev = temp;
+				if (position->prev != NULL)
+					position->prev->next = position;
+				else
+					*list = position;
+				print_list(*list);
 			} else
-				flag = 1;
+				break;
 		}
 	}
 }
