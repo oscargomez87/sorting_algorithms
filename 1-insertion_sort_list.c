@@ -9,7 +9,7 @@ void insertion_sort_list(listint_t **list)
 {
 	listint_t *flist = NULL, *temp = NULL, *position = NULL;
 
-	if (*list == NULL)
+	if (list == NULL)
 		return;
 	flist = (*list)->next;
 	while (flist)
