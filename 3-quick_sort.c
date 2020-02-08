@@ -43,12 +43,13 @@ int lomuto_scheme(int *array, int first, int last, size_t size)
 			i++;
 		}
 	}
-	if (i == last)
-		return (i);
-	temp = array[i];
-	array[i] = array[last];
-	array[last] = temp;
-	print_array(array, size);
+	if (array[i] > array[last])
+	{
+		temp = array[i];
+		array[i] = array[last];
+		array[last] = temp;
+		print_array(array, size);
+	}
 	return (i);
 }
 
